@@ -4,7 +4,7 @@ import {
 } from '@material-ui/core'
 
 import Header from './components/header/header.component'
-import BlockItems from './components/block-items/block-items.component'
+import HomePage from './pages/homepage/homepage.component'
 import BooksListPage from './pages/books-list-page/books-list-page.component'
 
 const App = () => (
@@ -14,7 +14,7 @@ const App = () => (
       <Route
         exact
         path='/'
-        render={() => <BlockItems num={7} />}
+        component={HomePage}
       />
       <Route
         exact 
