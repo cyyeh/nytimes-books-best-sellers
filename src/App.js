@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom'
+import { 
+  Container
+} from '@material-ui/core'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Header from './components/header/header.component'
+import BlockItems from './components/block-items/block-items.component'
+import BooksListPage from './pages/books-list-page/books-list-page.component'
 
-export default App;
+const App = () => (
+  <Container>
+    <Header />
+    <Switch>
+      <Route
+        exact
+        path='/'
+        render={() => <BlockItems num={7} />}
+      />
+      <Route
+        exact 
+        path={`/books/:year`}
+        component={BooksListPage}
+      />
+    </Switch>
+  </Container>
+)
+
+export default App
