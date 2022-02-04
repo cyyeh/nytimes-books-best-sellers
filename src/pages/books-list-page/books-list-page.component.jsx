@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import styled from 'styled-components'
-import { Typography } from '@material-ui/core';
+import { Typography, LinearProgress } from '@material-ui/core';
 
 import BookGallery from '../../components/book-gallery/book-gallery.component'
 import { getBestSellingBooksRequested } from '../../redux/book/book.actions'
@@ -15,9 +15,20 @@ const HeadlineDiv = styled.div`
   align-items: flex-end;
 `
 
+const LoaderContainer = styled.div`
+  margin: 20px auto;
+`
+
 const BooksListPage = ({ match, getBestSellingBooks, bestSellers }) => {
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [bestSellers])
+
   useEffect(() => {
     getBestSellingBooks(match.params.year)
+    setIsLoading(true)
   }, [getBestSellingBooks, match.params.year])
 
   return (
@@ -31,7 +42,7 @@ const BooksListPage = ({ match, getBestSellingBooks, bestSellers }) => {
           Best Sellers in {match.params.year}
         </Typography>
         {
-          bestSellers && 
+          bestSellers && !isLoading && 
           <Typography
             variant="h6"
             component="h6"
@@ -42,7 +53,13 @@ const BooksListPage = ({ match, getBestSellingBooks, bestSellers }) => {
         }
       </HeadlineDiv>
       {
-        bestSellers &&
+        isLoading &&
+        <LoaderContainer>
+          <LinearProgress />
+        </LoaderContainer>
+      }
+      {
+        bestSellers && !isLoading &&
         bestSellers.lists.map(list => (
           <BookGallery
             key={list.list_id}
