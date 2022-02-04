@@ -12,12 +12,12 @@ const useStyles = makeStyles({
   root: {
     width: 345,
     height: 250,
-    margin: '40px 15px',
+    margin: '40px 30px 40px 0px',
   },
   mobileRoot: {
     width: 250,
     height: 250,
-    margin: '40px 15px',
+    margin: '40px 30px 40px 0px',
   },
   media: {
     height: 140,

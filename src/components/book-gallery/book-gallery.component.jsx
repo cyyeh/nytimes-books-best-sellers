@@ -7,7 +7,7 @@ import BookCard from '../book-card/book-card.component'
 
 const BookGalleryContainer = styled.div`
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   width: 100%;
 `
 
