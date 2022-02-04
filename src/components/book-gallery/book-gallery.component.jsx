@@ -1,4 +1,8 @@
+import {
+  Typography
+} from '@material-ui/core'
 import styled from 'styled-components'
+
 import BookCard from '../book-card/book-card.component'
 
 const BookGalleryContainer = styled.div`
@@ -7,17 +11,28 @@ const BookGalleryContainer = styled.div`
   width: 100%;
 `
 
+const BookCategoryDiv = styled.div`
+  margin-top: 30px;
+`
+
 const BookGallery = ({
   category,
   books,
 }) => (
-  <BookGalleryContainer>
+  <>
+    <BookCategoryDiv>
+      <Typography gutterBottom variant="h4" component="h4">
+        {category}
+      </Typography>
+    </BookCategoryDiv>
+    <BookGalleryContainer>
     {
       books.map((book, idx) => (
-        <BookCard key={idx} book={book} category={category} />
+        <BookCard key={idx} book={book} />
       ))
     }
-  </BookGalleryContainer>
+    </BookGalleryContainer>
+  </>
 )
 
 export default BookGallery

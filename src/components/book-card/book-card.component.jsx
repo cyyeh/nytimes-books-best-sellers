@@ -3,7 +3,9 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Typography
+  Typography,
+  useMediaQuery,
+  useTheme
 } from '@material-ui/core'
 
 const useStyles = makeStyles({
@@ -12,17 +14,26 @@ const useStyles = makeStyles({
     height: 250,
     margin: '40px 15px',
   },
+  mobileRoot: {
+    width: 250,
+    height: 250,
+    margin: '40px 15px',
+  },
   media: {
     height: 140,
   },
 })
 
-const BookCard = ({ book, category }) => {
+
+
+const BookCard = ({ book }) => {
   const classes = useStyles()
+  const theme = useTheme()
+  const matches = useMediaQuery(theme.breakpoints.down('sm'))
 
   return (
     <a href={book.amazon_product_url} target="_blank" rel="noreferrer">
-      <Card className={classes.root}>
+      <Card className={matches ? classes.mobileRoot : classes.root}>
         <CardMedia
           className={classes.media}
           image={book.book_image}
@@ -33,7 +44,7 @@ const BookCard = ({ book, category }) => {
             {book.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {category}
+            {book.author}
           </Typography>
         </CardContent>
       </Card>
