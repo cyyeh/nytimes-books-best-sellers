@@ -11,7 +11,7 @@ import {
 const useStyles = makeStyles({
   root: {
     width: 345,
-    height: 250,
+    height: 345,
     margin: '40px 30px 40px 0px',
   },
   mobileRoot: {
@@ -20,8 +20,9 @@ const useStyles = makeStyles({
     margin: '40px 30px 40px 0px',
   },
   media: {
-    height: 140,
+    height: 250,
     backgroundSize: 'contain',
+    backgroundColor: 'lightgray',
   },
 })
 
@@ -40,8 +41,13 @@ const BookCard = ({ book }) => {
           image={book.book_image}
           title={book.title}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="h3">
+        <CardContent style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <Typography variant="subtitle1" component="h6">
             {book.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">

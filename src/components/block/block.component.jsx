@@ -24,13 +24,13 @@ const BlockContent = styled(Paper)`
 const Block = ({ data, index, history }) => (
   <BlockContainer>
     <BlockContent
-      elevation={3}
+      elevation={6}
       variant="outlined"
       squared="true"
       background={COLORS[index % 7]}
       onClick={() => history.push(`/books/${data}`)}
     >
-      <Typography variant="h3" component="h3" gutterBottom>
+      <Typography variant="h2" component="h3">
         {data}
       </Typography>
     </BlockContent>

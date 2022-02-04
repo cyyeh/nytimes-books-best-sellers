@@ -9,10 +9,8 @@ import { getBestSellingBooksRequested } from '../../redux/book/book.actions'
 import { selectBestSellers } from '../../redux/book/book.selectors'
 
 const HeadlineDiv = styled.div`
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  margin: 100px auto;
+  text-align: center;
 `
 
 const LoaderContainer = styled.div`
@@ -35,9 +33,9 @@ const BooksListPage = ({ match, getBestSellingBooks, bestSellers }) => {
     <div>
       <HeadlineDiv>
         <Typography
-          variant="h4"
-          component="h4"
-          gutterBottom
+          variant="h3"
+          component="h3"
+          style={{ fontWeight: 'bold' }}
         >
           Best Sellers in {match.params.year}
         </Typography>

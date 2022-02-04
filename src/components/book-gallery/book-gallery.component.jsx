@@ -12,7 +12,7 @@ const BookGalleryContainer = styled.div`
 `
 
 const BookCategoryDiv = styled.div`
-  margin-top: 30px;
+  margin-top: 60px;
 `
 
 const BookGallery = ({
@@ -21,7 +21,7 @@ const BookGallery = ({
 }) => (
   <>
     <BookCategoryDiv>
-      <Typography gutterBottom variant="h4" component="h4">
+      <Typography gutterBottom variant="h4" component="h4" style={{ fontWeight: 'bold' }}>
         {category}
       </Typography>
     </BookCategoryDiv>

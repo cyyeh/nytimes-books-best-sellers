@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor: 'lightgray',
   },
   title: {
     flexGrow: 1,
@@ -20,7 +21,7 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: 'gray' }}>
         <Toolbar>
           <Link to="/">
             <Typography variant="h6" className={classes.title}>
