@@ -17,8 +17,13 @@ const BlockContent = styled(Paper)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${props => `linear-gradient(to top right, ${props.backgroundStart} 0%, ${props.backgroundEnd} 100%)`};
+  background: ${props => `linear-gradient(to top right, ${props.backgroundstart} 0%, ${props.backgroundend} 100%)`};
   cursor: pointer;
+  border-radius: 50px;
+`
+
+const BlockText = styled(Typography)`
+  font-weight: 500;
 `
 
 const Block = ({ data, index, history }) => (
@@ -27,13 +32,13 @@ const Block = ({ data, index, history }) => (
       elevation={6}
       variant="outlined"
       squared="true"
-      backgroundStart={COLORS[index % 7][0]}
-      backgroundEnd={COLORS[index % 7][1]}
+      backgroundstart={COLORS[index % 7][0]}
+      backgroundend={COLORS[index % 7][1]}
       onClick={() => history.push(`/books/${data}`)}
     >
-      <Typography variant="h2" component="h3">
+      <BlockText variant="h2" component="h3">
         {data}
-      </Typography>
+      </BlockText>
     </BlockContent>
   </BlockContainer>
 )
