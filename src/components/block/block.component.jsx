@@ -17,7 +17,7 @@ const BlockContent = styled(Paper)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${background=> background};
+  background: ${props => `linear-gradient(to top right, ${props.backgroundStart} 0%, ${props.backgroundEnd} 100%)`};
   cursor: pointer;
 `
 
@@ -27,7 +27,8 @@ const Block = ({ data, index, history }) => (
       elevation={6}
       variant="outlined"
       squared="true"
-      background={COLORS[index % 7]}
+      backgroundStart={COLORS[index % 7][0]}
+      backgroundEnd={COLORS[index % 7][1]}
       onClick={() => history.push(`/books/${data}`)}
     >
       <Typography variant="h2" component="h3">

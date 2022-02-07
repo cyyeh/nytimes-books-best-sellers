@@ -1,13 +1,3 @@
-import {
-  red,
-  orange,
-  yellow,
-  green,
-  blue,
-  cyan,
-  purple
-} from '@material-ui/core/colors'
-
 export const generateLastNYears = (num = 10) => {
   const currentYear = new Date().getFullYear()
   const lastNYears = []
@@ -20,11 +10,11 @@ export const generateLastNYears = (num = 10) => {
 
 
 export const COLORS = [
-  red[300],
-  orange[300],
-  yellow[300],
-  green[300],
-  blue[300],
-  cyan[300],
-  purple[300]
+  ['#ff3300', '#ff99cc'],
+  ['#ff9900', '#ff99cc'],
+  ['#ffff00', '#ff99cc'],
+  ['#00ff00', '#009933'],
+  ['#00ccff', '#0000ff'],
+  ['#00ccff', '#6699ff'],
+  ['#9933ff', '#cc00cc']
 ]
